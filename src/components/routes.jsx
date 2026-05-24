@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "./layout";
 import AllCourses from "../pages/allCourses";
+import LandingPage from "../pages/landingPage";
 
 const routes = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const routes = createBrowserRouter([
       </div>
     ),
     children: [
+      {
+        index: true,
+        element: <LandingPage />,
+      },
       {
         path: "all-courses",
         element: <AllCourses />,

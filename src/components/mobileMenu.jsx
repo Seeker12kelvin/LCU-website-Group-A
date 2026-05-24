@@ -87,11 +87,11 @@ const MobileMenu = () => {
   };
 
   const handleEnter = (i) => {
-    gsap.to(`.hoverText-${i}`, { color: "#fa7252", duration: 0.3 });
+    gsap.to(`.hoverText-${i}`, { color: "#fa7252", duration: 0.1 });
   };
 
-  const handleLeave = (i) => {
-    gsap.to(`.hoverText-${i}`, { color: "white", duration: 0.3 });
+  const handleLeave = (i, color) => {
+    gsap.to(`.hoverText-${i}`, { color: color, duration: 0.1 });
   };
 
   return (
@@ -110,17 +110,19 @@ const MobileMenu = () => {
       <nav className="w-full h-full">
         <ul className="w-full h-full flex flex-col gap-4 text-white items-start justify-start">
           {navBar.map((data, index) => (
-            <NavLink
+            <li
               key={index}
-              to={data.text.toLowerCase()}
-              end={index > 0 ? false : true}
-              onClick={() => exitAnimation()}
-              onMouseEnter={handleEnter(index)}
-              onMouseLeave={handleLeave(index)}
+              // to={data.text.toLowerCase()}
+              // end={index > 0 ? false : true}
+              onClick={exitAnimation}
+              onMouseEnter={() => handleEnter(index)}
+              onMouseLeave={() =>
+                handleLeave(index, data.fontSize ? "#999" : "white")
+              }
               className={`flex animNav items-center h-full w-full rounded-sm hoverText-${index} ${data.fontSize ? "font-semibold text-sm text-[#999]" : "font-bold uppercase"}`}
             >
               {data.text}
-            </NavLink>
+            </li>
           ))}
         </ul>
       </nav>

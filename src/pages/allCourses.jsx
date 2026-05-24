@@ -31,7 +31,7 @@ const AllCourses = () => {
             {coursesData.map((course, index) => (
               <div key={index} className="w-65 h-fit text-center shadow-xl">
                 <div
-                  className="text-white xl:text-2xl max-xl:text-lg h-25 w-full flex justify-center items-center"
+                  className="text-white xl:text-2xl max-xl:text-lg h-25 w-full flex justify-center items-center p-4"
                   style={{ backgroundColor: course.color }}
                 >
                   <span>{course.name}</span>
