@@ -1,3 +1,12 @@
+import programme_one from "../images/programme1.jpg";
+import programme_two from "../images/programme2.jpg";
+import programme_four from "../images/programme4.jpg";
+import programme_three from "../images/programme3.jpg";
+import modernFam from "../images/landingPageModernFamilies.jpg";
+import globalRec from "../images/landingPageglobalRecognition.png";
+import researchAnd from "../images/landingPageResearchAndInnovation.jpeg";
+
+
 export const coursesData = [
   { name: "Civil Engineering", color: "green", price: "₦925,000" },
   { name: "Mechanical Engineering", color: "#000", price: "₦925,000" },
@@ -153,4 +162,97 @@ export const coursesData = [
   },
   { name: "Physics", color: "#6caec8", price: "₦525,000" },
   { name: "French", color: "#3c2e62", price: "₦525,000" },
+];
+
+export const programmes = [
+  {
+    header: "Pre-Degree Programmes",
+    img: programme_one,
+    desc: "Kickstart your academic journey with our foundational programmes designed to prepare you for degree studies.",
+    btn: "Learn More",
+  },
+  {
+    header: "Undergraduate Programmes",
+    img: programme_two,
+    desc: "Explore our diverse range of undergraduate courses tailored to equip you with real-world skills and knowledge.",
+    btn: "Apply Now",
+  },
+  {
+    header: "Postgraduate Programmes",
+    img: programme_three,
+    desc: "Advance your career with our postgraduate programmes, offering specialized knowledge and research opportunities.",
+    btn: "Download Form",
+  },
+  {
+    header: "Sandwich Programmes",
+    img: programme_four,
+    desc: "Our flexible sandwich programmes are designed for working professionals seeking to further their education.",
+    btn: "Read More",
+  },
+];
+
+export const chooseLcu = [
+  {
+    heading: "Global Recognition",
+    img: globalRec,
+    desc: "Our degrees are internationally recognized, opening doors to global opportunities.",
+  },
+  {
+    heading: "Research and Innovation",
+    img: researchAnd,
+    desc: "At Lead City University, Research and Innovation are at the heart of our mission to foster academic excellence and societal impact.",
+  },
+  {
+    heading: "Modern Facilities",
+    img: modernFam,
+    desc: "State-of-the-art labs, libraries, and recreational facilities for a holistic learning experience.",
+  },
+];
+
+export const news = [
+  {
+    heading:
+      "Lead City varsity confers honorary doctorates on Olubadan, others [Punch]",
+    img: globalRec,
+    desc: "The Lead City University, Ibadan, has conferred honorary doctorate degrees on the Olubadan of Ibadanland, Oba Rashidi Ladoja, and a former President of the Nigeria Labour Congress, Hassan Sunmonu.",
+  },
+  {
+    heading:
+      "Oba Ladoja, Sunmonu, others receive honorary doctorates as Lead City graduates 3,379 [The Guardian]",
+    img: researchAnd,
+    desc: "The Vice Chancellor of Lead City University, Prof. Kabiru Aderemi Adeyemo, and the institution’s Chancellor, Prof. Gabriel Ogunmola, have charged the 2025 graduating students to embrace innovation, excellence, ethical leadership and nation-building.",
+  },
+  {
+    heading:
+      "Lead City varsity graduates 290 first class students at 18th convocation [Newspeak]",
+    img: modernFam,
+    desc: "Lead City University, Ibadan, on Wednesday graduated a total of 2,162 students across various faculties as it marked the grand finale of its 18th convocation ceremony, with 290 of the graduands earning first class honours.",
+  },
+  {
+    heading:
+      "Olubadan, Sunmonu, others bag doctorate at Lead City varsity [The Nation]",
+    img: globalRec,
+    desc: "The Olubadan of Ibadanland, Oba Sen. Rashidi Ladoja, and veteran trade unionist, Com. Hasan Sunmonu, were among prominent figures awarded honorary doctorate degrees by Lead City University, Ibadan, during the grand finale of the institution’s 18th convocation ceremony.",
+  },
+  {
+    heading:
+      "18th Convocation: Lead City ‘Varsity Honours Olubadan, Turns Out 290 First Class Students [PM Parrot]",
+    img: researchAnd,
+    desc: "One of Nigeria’s foremost privately-owned tertiary institutions, Lead City University, Ibadan, on Wednesday graduated a total of 2,162 students across various faculties as it marked the grand finale of its 18th convocation ceremony.",
+  },
+  {
+    heading: "LCU 20th Anniversary",
+    img: modernFam,
+    desc: "Join us as Lead City University celebrates 20 years of academic excellence, innovation, and impact!",
+  },
+  {
+    heading: "2024 Convocation Ceremony",
+    img: researchAnd,
+    desc: "Lead City University successfully held its 2024 Convocation Ceremony, celebrating the achievements of its graduating students.",
+  },
+  {
+    heading: "Conferences and Training, Locally and Internationally",
+    img: modernFam,
+    desc: "Lead City University continues to foster academic excellence through active participation in conferences and training programs, both locally and internationally.",
+  },
 ];

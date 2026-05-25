@@ -1,4 +1,3 @@
-import Footer from "./footer";
 import { useContext } from "react";
 import { UserContext } from "./user";
 import MobileMenu from "./mobileMenu";
@@ -10,10 +9,7 @@ const Layout = () => {
   return (
     <>
       {menuBtn ? <MobileMenu /> : null}
-      <main className="min-[1200px]:px-5 w-full h-full overflow-x-hidden">
-        <Outlet />
-        <Footer />
-      </main>
+      <Outlet />
     </>
   );
 };
