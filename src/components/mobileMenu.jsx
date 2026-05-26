@@ -6,56 +6,67 @@ import { IoMdClose } from "react-icons/io";
 
 const MobileMenu = () => {
   const navBar = [
-    { text: "Home" },
-    { text: "About US" },
-    { text: "Admissions" },
-    { text: "Undergraduate", fontSize: 14 },
-    { text: "Sandwich Programme", fontSize: 14 },
-    { text: "Postgraduate", fontSize: 14 },
-    { text: "Our Short Courses", fontSize: 14 },
-    { text: "Scholarly Journals" },
-    { text: "Academic Discourse" },
-    { text: "16th Inaugural Lecture", fontSize: 14 },
-    { text: "Conference Proceedings", fontSize: 14 },
-    { text: "Faculties" },
+    { id: 1, text: "Home" },
+    { id: 2, text: "About US" },
+    { id: 3, text: "Admissions" },
+    { id: 4, text: "Undergraduate", fontSize: 14 },
+    { id: 5, text: "Sandwich Programme", fontSize: 14 },
+    { id: 6, text: "Postgraduate", fontSize: 14 },
+    { id: 7, text: "Our Short Courses", fontSize: 14 },
+    { id: 8, text: "Scholarly Journals" },
+    { id: 9, text: "Academic Discourse" },
+    { id: 10, text: "16th Inaugural Lecture", fontSize: 14 },
+    { id: 11, text: "Conference Proceedings", fontSize: 14 },
+    { id: 12, text: "Faculties" },
     {
+      id: 13,
       text: "Natural and Applied Sciences Overview",
       color: "#999",
       fontSize: 14,
     },
     {
+      id: 14,
       text: "Communication and Information Science Overview",
       color: "#999",
       fontSize: 14,
     },
-    { text: "Law Overview", color: "#999", fontSize: 14 },
+    { id: 15, text: "Law Overview", color: "#999", fontSize: 14 },
     {
+      id: 16,
       text: "Engineering and Technology Overview",
       color: "#999",
       fontSize: 14,
     },
     {
+      id: 17,
       text: "Social Management & Sciences Overview",
       color: "#999",
       fontSize: 14,
     },
     {
+      id: 18,
       text: "Environmental Design and Management Overview",
       color: "#999",
       fontSize: 14,
     },
-    { text: "Arts & Education Overview", color: "#999", fontSize: 14 },
+    { id: 19, text: "Arts & Education Overview", color: "#999", fontSize: 14 },
     {
+      id: 20,
       text: "College of Medicine & Health Sciences Overview",
       color: "#999",
       fontSize: 14,
     },
-    { text: "Faculty of Pharmacy Overview", color: "#999", fontSize: 14 },
-    { text: "Courseware" },
-    { text: "Readings for Research", color: "#999", fontSize: 14 },
-    { text: "Careers" },
-    { text: "Photo Gallery" },
-    { text: "Lead City FM" },
+    {
+      id: 21,
+      text: "Faculty of Pharmacy Overview",
+      color: "#999",
+      fontSize: 14,
+    },
+    { id: 22, text: "Courseware" },
+    { id: 23, text: "Readings for Research", color: "#999", fontSize: 14 },
+    { id: 24, text: "Careers" },
+    { id: 25, text: "Photo Gallery" },
+    { id: 26, text: "Lead City FM" },
   ];
 
   const { setMenuBtn } = useContext(UserContext);
@@ -85,14 +96,6 @@ const MobileMenu = () => {
     );
   };
 
-  const handleEnter = (i) => {
-    gsap.to(`.hoverText-${i}`, { color: "#fa7252", duration: 0.1 });
-  };
-
-  const handleLeave = (i, color) => {
-    gsap.to(`.hoverText-${i}`, { color: color, duration: 0.1 });
-  };
-
   return (
     <aside
       ref={asideRef}
@@ -108,17 +111,13 @@ const MobileMenu = () => {
 
       <nav className="w-full h-full">
         <ul className="w-full h-full flex flex-col gap-4 text-white items-start justify-start">
-          {navBar.map((data, index) => (
+          {navBar.map((data) => (
             <li
-              key={index}
+              key={data.id}
               // to={data.text.toLowerCase()}
-              // end={index > 0 ? false : true}
+              // end={data.id > 0 ? false : true}
               onClick={exitAnimation}
-              onMouseEnter={() => handleEnter(index)}
-              onMouseLeave={() =>
-                handleLeave(index, data.fontSize ? "#999" : "white")
-              }
-              className={`flex animNav items-center h-full w-full rounded-sm hoverText-${index} ${data.fontSize ? "font-semibold text-sm text-[#999]" : "font-bold uppercase"}`}
+              className={`flex animNav items-center h-full hover:text-[#fa7252] transition-all duration-300 w-full rounded-sm hoverText-${data.id} ${data.fontSize ? "font-semibold text-sm text-[#999]" : "font-bold uppercase"}`}
             >
               {data.text}
             </li>

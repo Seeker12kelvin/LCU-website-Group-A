@@ -23,7 +23,11 @@ const Header = () => {
       <nav className="w-full h-full max-[1041px]:hidden">
         <ul className="w-full h-full flex flex-wrap justify-between text-xs font-bold uppercase">
           {navList.map((data, index) => (
-            <Link to={data.to} key={index}>
+            <Link
+              to={data.to}
+              key={index}
+              className="hover:text-[#fa7252] duration-300 transition-all"
+            >
               {data.text}
             </Link>
           ))}
