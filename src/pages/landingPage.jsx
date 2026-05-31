@@ -293,8 +293,8 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <div className="flex max-xl:flex-wrap max-xl:justify-center xl:justify-between items-center gap-10 w-full h-fit shadow-xl rounded-xl py-10 px-20">
-          <video controls className="w-[50%]">
+        <div className="flex max-xl:flex-wrap max-xl:justify-center xl:justify-between items-center gap-10 w-full h-fit shadow-xl rounded-xl py-10 sm:px-20">
+          <video controls className="sm:w-[50%]">
             <source src={leadCityCampus} />
           </video>
 
