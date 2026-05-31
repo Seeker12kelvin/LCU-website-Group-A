@@ -1,6 +1,6 @@
 import bg_image from "../images/bg.jpg";
-import Header from "../components/header";
 import { Link } from "react-router-dom";
+import Header from "../components/header";
 
 const AdmissionsPage = () => {
   return (

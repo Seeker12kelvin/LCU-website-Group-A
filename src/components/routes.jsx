@@ -1,8 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
 import Layout from "./layout";
 import AllCourses from "../pages/allCourses";
 import LandingPage from "../pages/landingPage";
 import AdmissionsPage from "../pages/admissionsPage";
+import { createBrowserRouter } from "react-router-dom";
+import AcademicDiscourse from "../pages/academicDiscourse";
 
 const routes = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const routes = createBrowserRouter([
       {
         path: "admissions",
         element: <AdmissionsPage />,
+      },
+      {
+        path: "conference-proceedings/facon-2022",
+        element: <AcademicDiscourse />,
       },
     ],
   },

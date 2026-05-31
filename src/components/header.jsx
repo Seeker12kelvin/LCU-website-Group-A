@@ -9,7 +9,7 @@ const Header = () => {
     { text: "About US", to: "/about-us" },
     { text: "Admissions", to: "/admissions" },
     { text: "Scholarly Journals", to: "/scholarly-journals" },
-    { text: "Academic Discourse", to: "/academic-discourse" },
+    { text: "Academic Discourse", to: "/conference-proceedings/facon-2022" },
     { text: "Faculties", to: "/faculties" },
     { text: "Courseware", to: "/courseware" },
     { text: "Careers", to: "/careers" },
@@ -18,7 +18,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full text-white flex min-[1041px]:flex-col max-[1041px]:justify-between gap-8 px-4">
+    <header className="w-full text-white flex min-[1041px]:flex-col max-[1041px]:justify-between gap-8 px-4 z-10 font-poppins">
       <img src={logo_image} alt="The logo of the school" className="w-fit" />
       <nav className="w-full h-full max-[1041px]:hidden">
         <ul className="w-full h-full flex flex-wrap justify-between text-xs font-bold uppercase">

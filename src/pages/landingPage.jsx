@@ -1,14 +1,141 @@
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import Header from "../components/header";
 import prof_image from "../images/prof-Adeymo-Kabiru.png";
+import { chooseLcu, news, programmes } from "../Data/data";
 import leadCityCampus from "../images/landingPagevideo_lcu.mp4";
 import agricPic from "../images/landingPageAgri-business-logo.png";
-import { chooseLcu, news, programmes } from "../Data/data";
+import ComeStudy_bg from "../images/landingPageHeroSectionconvocationstudy.png";
+import TakeTour_bg from "../images/landingPageHeroSection20thcollegeofmedicine.jpg";
+import Celebrating_bg from "../images/landingPageHeroSection20thcollegeofmedicine.jpg";
+import Squarebanner_image from "../images/landingPageHeroSectionsquarebanner.jpg";
 
 const LandingPage = () => {
+  const bgRef = useRef(null);
+  const blockTextRef = useRef(null);
+  const progressBarRef = useRef(null);
+  const header = [
+    {
+      id: 1,
+      heading: "Come and study with us",
+      bg: TakeTour_bg,
+      para: "September 2024/2025 Admission is open. Apply Online Now!",
+    },
+    {
+      id: 2,
+      heading: "Take a tour",
+      bg: ComeStudy_bg,
+      para: "Visit the university environment.",
+    },
+    {
+      id: 3,
+      heading: "Celebrating 20 Years of Excellence",
+      bg: Celebrating_bg,
+      para: "Join us as we mark two decades of academic achievements and innovation.",
+    },
+  ];
+
+  const [increment, setIncrement] = useState(0);
+  const currentText = header[increment];
+
+  useGSAP(() => {
+    const tl = gsap.timeline();
+    tl.set(blockTextRef.current, {
+      yPercent: 100,
+      opacity: 0,
+    })
+      .to(blockTextRef.current, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.5,
+      })
+
+      .from(progressBarRef.current, { width: "0%", duration: 7 })
+      .to(blockTextRef.current, { yPercent: -100, opacity: 0, duration: 0.5 })
+      .to(bgRef.current, { opacity: 1, duration: 0.5 }, "<")
+      .call(() => {
+        if (increment >= header.length - 1) {
+          return setIncrement(0);
+        } else {
+          return setIncrement((prev) => prev + 1);
+        }
+      });
+  }, [increment]);
+
   return (
-    <main className="min-[1200px]:px-5 w-full h-full overflow-x-hidden">
+    <main className="w-full h-full overflow-x-hidden font-poppins">
+      <section id="Hero-Section" className="h-224 relative">
+        <div
+          ref={bgRef}
+          style={{ backgroundImage: `url(${currentText.bg})` }}
+          className="h-full w-full absolute top-0 -z-1 bg-cover bg-no-repeat bg-center"
+        />
+        <div className="max-sm:px-5 max-md:px-10 md:px-20 py-10 z-10 flex flex-col justify-between h-full w-full">
+          <Header />
+
+          <div className="h-fit overflow-hidden flex flex-col gap-4 max-sm:text-center">
+            <div ref={blockTextRef} className="text-white flex flex-col gap-4">
+              <h1 className="max-md:text-5xl md:text-6xl uppercase">
+                {currentText.heading}
+              </h1>
+              <p className="max-md:text-lg md:text-[20px]">
+                {currentText.para}
+              </p>
+            </div>
+            <div className="border-[#fa7252] border h-1.5 max-sm:max-w-full sm:max-w-33 w-full">
+              <div
+                ref={progressBarRef}
+                className="bg-[#fa7252] h-full w-full"
+              />
+            </div>
+          </div>
+
+          <div className="h-fit w-full flex flex-wrap items-end gap-5">
+            <div className="w-[954.8px] max-lg:h-fit lg:h-[273.77px] bg-white flex">
+              <div className="uppercase bg-[#0F1725] flex items-center gap-2 justify-center w-15 max-lg:hidden">
+                <div className="-rotate-90 text-white text-sm font-semibold w-full flex justify-center gap-2">
+                  <h3>Latest</h3>
+                  <h3>events</h3>
+                </div>
+              </div>
+              <div className="bg-white py-5 w-full h-full">
+                <div className="shadow-xl rounded-xl rounded-tl-none rounded-bl-none bg-white h-full w-[98%] p-4">
+                  <div className="bg-linear-[135deg] from-[#1453a0] to-[#EC268F] rounded-xl h-full flex flex-col items-center justify-between max-lg:gap-4 p-3.5 text-white">
+                    <h2 className="font-semibold text-[22px]">
+                      Our 18th CONVOCATION
+                    </h2>
+                    <p className="text-center max-sm:text-sm max-[]">
+                      The University Management invites the public to join in
+                      celebrating this milestone as Lead City University
+                      continues to strengthen its commitment to producing
+                      innovative, globally competitive graduates.
+                    </p>
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="bg-[#0077BD] py-1.25 px-3 rounded-sm">
+                        <p>December 1st - 3rd, 2025</p>
+                      </div>
+                      <p>📍 Lead City University, Ibadan</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-[285.2px] w-full max-h-82.5 h-full p-4 rounded-xl bg-white max-[1401px]:hidden">
+              <img
+                src={Squarebanner_image}
+                alt="A picture meant to be a guid of the school grounds"
+                className="h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
-        id="about us"
+        id="About-Us-Section"
         className="bg-white w-full h-fit max-md:px-10 md:px-20 py-10"
       >
         <div className="w-full h-fit bg-white shadow-xl max-sm:p-5 max-md:p-10 md:p-20 flex max-xl:flex-wrap xl:justify-between max-xl:justify-center xl:gap-10 max-xl:gap-5">
