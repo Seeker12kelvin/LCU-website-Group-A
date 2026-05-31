@@ -3,21 +3,26 @@ import { UserContext } from "./user";
 import { useGSAP } from "@gsap/react";
 import { useContext, useRef } from "react";
 import { IoMdClose } from "react-icons/io";
+import { Link, NavLink } from "react-router-dom";
 
 const MobileMenu = () => {
   const navBar = [
-    { id: 1, text: "Home" },
-    { id: 2, text: "About US" },
-    { id: 3, text: "Admissions" },
+    { id: 1, text: "Home", to: "/" },
+    { id: 2, text: "About US", to: "/about-us" },
+    { id: 3, text: "Admissions", to: "/admissions" },
     { id: 4, text: "Undergraduate", fontSize: 14 },
     { id: 5, text: "Sandwich Programme", fontSize: 14 },
     { id: 6, text: "Postgraduate", fontSize: 14 },
     { id: 7, text: "Our Short Courses", fontSize: 14 },
-    { id: 8, text: "Scholarly Journals" },
-    { id: 9, text: "Academic Discourse" },
+    { id: 8, text: "Scholarly Journals", to: "/scholarly-journals" },
+    {
+      id: 9,
+      text: "Academic Discourse",
+      to: "/conference-proceedings/facon-2022",
+    },
     { id: 10, text: "16th Inaugural Lecture", fontSize: 14 },
     { id: 11, text: "Conference Proceedings", fontSize: 14 },
-    { id: 12, text: "Faculties" },
+    { id: 12, text: "Faculties", to: "/faculties" },
     {
       id: 13,
       text: "Natural and Applied Sciences Overview",
@@ -62,11 +67,11 @@ const MobileMenu = () => {
       color: "#999",
       fontSize: 14,
     },
-    { id: 22, text: "Courseware" },
+    { id: 22, text: "Courseware", to: "/courseware" },
     { id: 23, text: "Readings for Research", color: "#999", fontSize: 14 },
-    { id: 24, text: "Careers" },
-    { id: 25, text: "Photo Gallery" },
-    { id: 26, text: "Lead City FM" },
+    { id: 24, text: "Careers", to: "/careers" },
+    { id: 25, text: "Photo Gallery", to: "/photo-gallery" },
+    { id: 26, text: "Lead City FM", to: "/lead-city-fm" },
   ];
 
   const { setMenuBtn } = useContext(UserContext);
@@ -96,32 +101,54 @@ const MobileMenu = () => {
     );
   };
 
+  const acitveStyle = {
+    color: "#fa7252",
+  };
+
   return (
     <aside
       ref={asideRef}
       className="h-screen fixed max-w-70 w-full bg-[#152136] flex flex-col z-100 gap-2 p-8 inset-y-0 min-[1041px]:hidden right-0 overflow-scroll"
     >
-      <div className="h-full w-full flex items-center justify-between text-[#fa7252]">
-        <h1 className="text-[15px] font-bold uppercase">All Courses</h1>
+      <div className="h-full w-full flex items-center justify-between">
+        <NavLink
+          style={({ isActive }) => (isActive ? acitveStyle : null)}
+          to={"/all-courses"}
+          className="text-[15px] font-bold uppercase text-white"
+        >
+          All Courses
+        </NavLink>
 
-        <button onClick={() => exitAnimation()} className="p-2 self-center">
+        <button
+          onClick={() => exitAnimation()}
+          className="p-2 self-center text-[#fa7252]"
+        >
           <IoMdClose size={24} />
         </button>
       </div>
 
       <nav className="w-full h-full">
         <ul className="w-full h-full flex flex-col gap-4 text-white items-start justify-start">
-          {navBar.map((data) => (
-            <li
-              key={data.id}
-              // to={data.text.toLowerCase()}
-              // end={data.id > 0 ? false : true}
-              onClick={exitAnimation}
-              className={`flex animNav items-center h-full hover:text-[#fa7252] transition-all duration-300 w-full rounded-sm hoverText-${data.id} ${data.fontSize ? "font-semibold text-sm text-[#999]" : "font-bold uppercase"}`}
-            >
-              {data.text}
-            </li>
-          ))}
+          {navBar.map((data) =>
+            data.fontSize ? (
+              <li
+                key={data.id}
+                className={`flex animNav items-center h-full hover:text-[#fa7252] transition-all duration-300 w-full rounded-sm hoverText-${data.id} font-semibold text-sm text-[#999]`}
+              >
+                {data.text}
+              </li>
+            ) : (
+              <NavLink
+                style={({ isActive }) => (isActive ? acitveStyle : null)}
+                key={data.id}
+                to={data.fontSize ? "" : data.to}
+                onClick={exitAnimation}
+                className={`flex animNav items-center h-full hover:text-[#fa7252] transition-all duration-300 w-full rounded-sm hoverText-${data.id} font-bold uppercase`}
+              >
+                {data.text}
+              </NavLink>
+            ),
+          )}
         </ul>
       </nav>
     </aside>
