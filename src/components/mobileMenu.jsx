@@ -3,7 +3,7 @@ import { UserContext } from "./user";
 import { useGSAP } from "@gsap/react";
 import { useContext, useRef } from "react";
 import { IoMdClose } from "react-icons/io";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const MobileMenu = () => {
   const navBar = [

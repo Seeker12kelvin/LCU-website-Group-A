@@ -1,4 +1,7 @@
 import Layout from "./layout";
+import FaQs from "../pages/faQs";
+import AboutUs from "../pages/aboutUs";
+import History from "../pages/history";
 import AllCourses from "../pages/allCourses";
 import LandingPage from "../pages/landingPage";
 import AdmissionsPage from "../pages/admissionsPage";
@@ -30,6 +33,18 @@ const routes = createBrowserRouter([
       {
         path: "conference-proceedings/facon-2022",
         element: <AcademicDiscourse />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "/history",
+        element: <History />,
+      },
+      {
+        path: "/faqs",
+        element: <FaQs />,
       },
     ],
   },

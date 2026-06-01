@@ -1,6 +1,7 @@
 import bg_image from "../images/bg.jpg";
 import Header from "../components/header";
 import TwitterLink from "../components/twitterLink";
+import { Link } from "react-router-dom";
 
 const AcademicDiscourse = () => {
   return (
@@ -22,9 +23,14 @@ const AcademicDiscourse = () => {
             </div>
 
             <div className="flex flex-col gap-5">
-              <button className="text-xs text-white font-semibold uppercase bg-[#fa7252] w-fit px-6 py-2.5">
+              <Link
+                to={
+                  "https://lcu.edu.ng/images/COPD/FASCON_2022_Conference_Proceedings_Complete.pdf"
+                }
+                className="text-xs text-white font-semibold uppercase bg-[#fa7252] w-fit px-6 py-2.5"
+              >
                 Download Conference Proceedings
-              </button>
+              </Link>
 
               <strong className="text-[#111] text-sm font-bold text-center">
                 3rd International Conference, Faculty of Natural and Applied
