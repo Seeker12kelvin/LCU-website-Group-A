@@ -6,7 +6,7 @@ const MenuBtn = () => {
   const { setMenuBtn } = useContext(UserContext);
 
   return (
-    <button className="min-[1041px]:hidden" onClick={() => setMenuBtn(true)}>
+    <button className="xl:hidden" onClick={() => setMenuBtn(true)}>
       <CiMenuBurger size={24} />
     </button>
   );

@@ -80,14 +80,15 @@ const MobileMenu = () => {
 
   useGSAP(
     () => {
+      // gsap.set(".animNav", { xPercent: 100 });
       const menu = asideRef.current;
       const tl = gsap.timeline();
 
-      tl.fromTo(menu, { xPercent: 100 }, { xPercent: 0, duration: 0.1 }).fromTo(
-        ".animNav",
-        { xPercent: 150 },
-        { xPercent: 0, duration: 0.1, stagger: 0.05 },
-      );
+      tl.fromTo(menu, { xPercent: 100 }, { xPercent: 0, duration: 0.5 });
+      // .to(
+      //   ".animNav",
+      //   { xPercent: 0, duration: 0.1, stagger: 0.05 },
+      // );
     },
     { scope: asideRef },
   );
@@ -96,7 +97,7 @@ const MobileMenu = () => {
     const menu = asideRef.current;
     const tl = gsap.timeline();
 
-    tl.fromTo(menu, { xPercent: 0 }, { xPercent: 100, duration: 0.1 }).call(
+    tl.fromTo(menu, { xPercent: 0 }, { xPercent: 100, duration: 0.5 }).call(
       () => setMenuBtn(false),
     );
   };
@@ -108,7 +109,7 @@ const MobileMenu = () => {
   return (
     <aside
       ref={asideRef}
-      className="h-screen fixed max-w-70 w-full bg-[#152136] flex flex-col z-100 gap-2 p-8 inset-y-0 min-[1041px]:hidden right-0 overflow-scroll"
+      className="h-screen fixed max-w-70 w-full bg-[#152136] flex flex-col z-100 gap-2 p-8 inset-y-0 xl:hidden right-0 overflow-scroll"
     >
       <div className="h-full w-full flex items-center justify-between">
         <NavLink

@@ -17,7 +17,7 @@ const AdmissionsPage = () => {
           <h1>Admissions</h1>
         </div>
 
-        <div className="h-full w-full bg-white max-sm:px-5 max-md:px-10 md:p-15 xl:pt-5 flex flex-col gap-15">
+        <div className="h-full w-full bg-white max-sm:p-5 max-md:p-10 md:p-10 flex flex-col gap-10">
           <div className="flex gap-1.5 items-center text-[#666] text-xs border-b-[#6666664b] border-b pb-3">
             <Link
               to={"/"}

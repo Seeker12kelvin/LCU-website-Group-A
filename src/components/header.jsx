@@ -18,9 +18,9 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full text-white flex min-[1041px]:flex-col max-[1041px]:justify-between gap-8 px-4 z-10 font-poppins">
+    <header className="w-full h-fit text-white flex xl:flex-col max-xl:justify-between gap-8 px-4 z-10 font-poppins">
       <img src={logo_image} alt="The logo of the school" className="w-fit" />
-      <nav className="w-full h-full max-[1041px]:hidden">
+      <nav className="w-full h-full max-xl:hidden">
         <ul className="w-full h-full flex flex-wrap justify-between text-xs font-bold uppercase">
           {navList.map((data, index) => (
             <Link
